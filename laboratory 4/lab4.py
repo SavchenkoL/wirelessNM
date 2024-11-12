@@ -54,7 +54,7 @@ def check_distance(A, B, C):
     return norm(cross(A - B, A - C)) / norm(B - A)
 
 
-def crossing():
+def crossing(x1, y1, x2, y2, x, y, radius_block):
     circle_point = []
     point_1 = []
     point_2 = []
