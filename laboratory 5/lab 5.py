@@ -2,12 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats
 import math
+
+from PIL.ImageChops import difference
 from numpy.linalg import norm
 from numpy import arccos, dot, pi, cross
 
 guard_size = 10
-poisson_lam = 0.2
-radius_block = 0.3
+poisson_lam = 0.3
+radius_block = 0.5
 distance = 3
 list_point=np.array
 
@@ -24,7 +26,7 @@ def poisson_point_process(lambda0,area_size):
     return x,y
 def paint_rectangle(x_point1, y_point1, x_point2, y_point2, angle, radius_block):
     difference_angle = 2 * np.pi - angle
-    reverse_angle = np.pi / 2 - angle
+    reverse_angle = np.pi / 2 -  difference_angle
     opposite_angle = reverse_angle + np.pi
     x_rectang_A = x_point1 + radius_block * np.cos(opposite_angle)
     y_rectang_A = y_point1 + radius_block * np.sin(opposite_angle)
